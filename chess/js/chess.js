@@ -23,31 +23,22 @@ $(function () {
         delete blank[pos];
         isSuccess(black,pos);
         if (isSuccess(black,pos)>=5){
-            window.setTimeout("alert('黑棋获胜!')",100);
             box.off('click');
+            window.setTimeout("alert('黑棋获胜!')",100);
+            return;
         }
-        // else{
-        //     white[pos]=true;
-        //     $(this).addClass('white');
-        //     if (isSuccess(white,pos)>=5){
-        //         window.setTimeout("alert('白棋获胜')",100);
-        //         box.off('click');
-        //     }
-        // }
-        // flag=!flag;
         ai(pos);
     });
     function ai(pos) {
         if($('.white').length==0){
             let [i,j]=pos.split('_');
             let id;
-            // if (j>13){
-            //     id=i+'_'+(j*1-1);
-            // }
-            // else {
-            //     id=i+'_'+(j*1+1);
-            // }
-            id=i+'_'+(j*1+1);
+            if (j>13){
+                id=i+'_'+(j*1-1);
+            }
+            else {
+                id=i+'_'+(j*1+1);
+            }
             let aa=$('.chess').filter(function (index,value) {
                 return value.id==id;
             });
@@ -147,9 +138,6 @@ $(function () {
         while (obj[(--i)+'_'+(--j)]) {
             yx++;
         }
-        // if (sp>=5||cz>=5||zx>=5||yx>=5){
-        //     return true;
-        // }
         return Math.max(sp,cz,zx,yx)
     }
 });
