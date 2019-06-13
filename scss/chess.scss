@@ -1,0 +1,78 @@
+@import "var";
+@import "mixin";
+//body{
+//  background: black;
+//}
+.box{
+  width: $w;
+  height: $w;
+  @include center;
+  background-image: url("../img/wood3.jpg");
+  box-shadow: black 10px 10px 10px;
+}
+.chess{
+  width: 2*($r - $s - $b);
+  height: 2*($r - $s - $b);
+  float: left;
+  margin: $s;
+  border: $b rgba(0,0,0,0) solid;
+  border-radius:50% ;
+  position: relative;
+  z-index: 999;
+}
+.black{
+  background: black;
+  border-bottom-color: #323232;
+  box-shadow: #383838 0 4px 8px;
+}
+.white{
+  background: white;
+  border-color: #7d7e5c;
+  box-shadow: #383838 0 4px 8px;
+}
+.h{
+  width: $w - 2 * $r;
+  height: 1px;
+  background: white;
+  position: absolute;
+  left: $r;
+  transform: translate3d(-200%,0,0);
+}
+.shu {
+  height: $w - 2 * $r;
+  width: 1px;
+  background: white;
+  position: absolute;
+  top: $r;
+  transform: translate3d(-200%,0,0);
+}
+@for $i from 1 to 16 {
+  .h:nth-of-type(#{$i}){
+    top:(2 * $i - 1) * $r;
+    animation: down $i*0.1s 1 ease-in forwards;
+  }
+  .shu:nth-of-type(#{$i}){
+    left:(2 * $i - 1) * $r;
+    animation: throw $i*0.1s 1 ease-in forwards;
+  }
+}
+@keyframes down {
+  from{
+  transform: translate3d(-200%,0,0);
+    opacity: 0;
+  }
+  to{
+  transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
+@keyframes throw {
+  from{
+    transform: translate3d(0,-200%,0);
+    opacity: 0;
+  }
+  to{
+    transform: translate3d(0,0,0);
+    opacity: 1;
+  }
+}
