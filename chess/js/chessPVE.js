@@ -24,7 +24,7 @@ $(function () {
         isSuccess(black,pos);
         if (isSuccess(black,pos)>=5){
             box.off('click');
-            window.setTimeout("alert('黑棋获胜!')",100);
+            window.setTimeout("alert('一次虚假的获胜!')",100);
             return;
         }
         ai(pos);
@@ -74,7 +74,7 @@ $(function () {
                     aa.addClass('white');},100);
                 delete blank[pos1];
                 if (isSuccess(white,pos1)>=5){
-                    window.setTimeout("alert('电脑都玩不过,菜逼!')",200);
+                    window.setTimeout("alert('你输了小老弟!')",200);
                     box.off('click');
                 }
             }
@@ -87,7 +87,7 @@ $(function () {
                     aa.addClass('white');},100);
                 delete blank[pos2];
                 if (isSuccess(white,pos2)>=5){
-                    window.setTimeout("alert('电脑都玩不过,菜逼!')",200);
+                    window.setTimeout("alert('你输了小老弟!')",200);
                     box.off('click');
                 }
             }
