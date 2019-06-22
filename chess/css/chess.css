@@ -1,3 +1,17 @@
+body{
+  background: #c3c9cd;
+}
+body>a{
+  padding: 5px 10px;
+  background: #636363;
+  border-radius: 5px;
+  color: white;
+  text-decoration-line: none;
+  margin:10px 5px;
+  display: block;
+  text-align: center;
+  box-shadow: #1a1c0e 0 2px 4px;
+}
 .box {
   width: 600px;
   height: 600px;
